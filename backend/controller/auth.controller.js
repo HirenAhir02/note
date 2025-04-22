@@ -58,6 +58,9 @@ export const signin = async(req,res,next) => {
             success:true,
             message:"Login Successful !",
             rest :userdata,
+            httpOnly: true,
+            secure: true, // important if using HTTPS
+            sameSite: "None", 
         })
 
     } catch (error) {
