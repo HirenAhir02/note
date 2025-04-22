@@ -14,7 +14,7 @@ function AddEditNotes({onClose, noteData, type,getAllNotes}) {
         const noteId = noteData._id
 
         try {
-            const res =await axios.post("http://localhost:3000/api/note/edit/"+noteId,{title,content,tags},{withCredentials:true})
+            const res =await axios.post("https://note-tq28.onrender.com/api/note/edit/"+noteId,{title,content,tags},{withCredentials:true})
 
             if(res.data.success === false){
                 console.log(res.data.message);
@@ -35,7 +35,7 @@ function AddEditNotes({onClose, noteData, type,getAllNotes}) {
 
     const addNewNote = async() => {
         try {
-            const res =await axios.post("http://localhost:3000/api/note/add",{title,content,tags},{withCredentials:true})
+            const res =await axios.post("https://note-tq28.onrender.com/api/note/add",{title,content,tags},{withCredentials:true})
 
             if(res.data.success === false){
                 console.log(res.data.message);
