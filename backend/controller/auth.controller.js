@@ -54,15 +54,16 @@ export const signin = async(req,res,next) => {
 
         const {password: pass, ...userdata} = validUser._doc 
 
-        res.cookie("access_token",token,{ httpOnly: true }).status(200).json({
-            success:true,
-            message:"Login Successful !",
-            rest :userdata,
+        res.cookie("access_token", token, {
             httpOnly: true,
-            secure: true, // important if using HTTPS
-            sameSite: "None", 
-        })
-
+            secure: true,          // Required for HTTPS (like onRender)
+            sameSite: "None",      // Required for cross-site cookie sending
+          }).status(200).json({
+            success: true,
+            message: "Login Successful!",
+            rest: userdata,
+          });
+          
     } catch (error) {
         next(error)
     }

@@ -18,7 +18,11 @@ const port = process.env.PORT
 //to make input as json
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin: ["http://localhost:5173"] , credentials:true}))
+app.use(cors({
+  origin: ["http://localhost:5173", "https://your-frontend-url.com"], // Add your real deployed frontend URL
+  credentials: true,
+}));
+
 
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
