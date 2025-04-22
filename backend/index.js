@@ -29,11 +29,11 @@ app.listen(port,()=>{
 import authRouter from './routes/auth.route.js';
 import  noteRouter  from './routes/note.route.js';
 
-app.use("/api/auth",authRouter)
-app.use("/api/note",noteRouter)
+// ✅ Routes
+app.use("/api/auth", authRouter)
+app.use("/api/note", noteRouter)
 
-
-// error-handling middleware must be last
+// ✅ Then, error handler at the very end
 app.use((err, req, res, next) => {
     console.error(err.stack);
     const status = err.statusCode || 500;
@@ -42,5 +42,6 @@ app.use((err, req, res, next) => {
     if (!res.headersSent) {
       res.status(status).json({ success: false, message });
     }
-  });
+});
+
   
