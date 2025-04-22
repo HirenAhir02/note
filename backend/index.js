@@ -18,11 +18,7 @@ const port = process.env.PORT
 //to make input as json
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: ["http://localhost:5173", "https://chipper-dieffenbachia-a24fe2.netlify"], // Add your real deployed frontend URL
-  credentials: true,
-}));
-
+app.use(cors({origin: true , credentials:true}))
 
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
