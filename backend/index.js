@@ -19,7 +19,7 @@ const port = process.env.PORT
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: ["http://localhost:5173", "https://your-frontend-url.com"], // Add your real deployed frontend URL
+  origin: ["http://localhost:5173", "https://chipper-dieffenbachia-a24fe2.netlify"], // Add your real deployed frontend URL
   credentials: true,
 }));
 
